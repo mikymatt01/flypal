@@ -42,17 +42,24 @@
           }
         }
 
+		.navbar{
+		  margin-left: 20%;
+          margin-right: 20%;
+		}
         .navbar .nav-link {
+          margin-right:25px;
+          font-size:16px;
+          font-weight:600;
           color: #fff !important;
         }
       </style>
 
       <!-- Navbar -->
-      <nav class="shadow navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+      <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
         <div class="container-fluid">
           <!-- Navbar brand -->
-          <a class="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-            <strong>FlyPal</strong>
+          <a class="navbar-brand nav-link" style="font-size:20px;" target="_blank" href="http://localhost:8080/FlyPal">
+            FlyPal
           </a>
           <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
             aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,18 +67,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" aria-current="page" href="#intro">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#offerte">Offerte</a>
-              </li>
-                            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
-              </li>
+
             </ul>
 
             <ul class="navbar-nav d-flex flex-row">
+              <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#intro">Home</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#offerte">Offerte</a>
+              </li>
+               <li class="nav-item">
+               <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
+              </li>
               <!-- Icons -->
               <li class="nav-item me-3 me-lg-0">
               	<%@ include file='Login.jsp' %>
