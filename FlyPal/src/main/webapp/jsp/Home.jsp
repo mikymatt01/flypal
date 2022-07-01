@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
-	<%@ include file="header.jsp" %> 
+	<%@include file="header.jsp" %> 
 	<div class="row justify-content-center">
 	<div class="mt-5 row text-center">
 		<h1 id="offerte">

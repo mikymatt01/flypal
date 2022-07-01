@@ -18,7 +18,7 @@ public class DbConnection {
 		if(datasource == null) {
 			PoolProperties prop = new PoolProperties();
 			prop.setUrl(DB_URL);
-			prop.setDriverClassName(DB_DRIVER);
+			prop.setDriverClassName(DB_DRIVER);;
 			prop.setUsername(USERNAME);
 			prop.setPassword(PASSWORD);
 			prop.setMaxActive(MAX_POOL);
