@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class UtenteDAO {
 	
-	public int doSave(Utente u) {
+	public void doSave(Utente u) {
 		try {
 			Connection con = DbConnection.getConnection();
 			
@@ -30,7 +30,6 @@ public class UtenteDAO {
 			
 			ResultSet rs = ps.getGeneratedKeys();
 			rs.next();
-			return i;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
