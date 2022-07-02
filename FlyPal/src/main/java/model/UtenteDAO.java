@@ -14,7 +14,7 @@ public class UtenteDAO {
 			PreparedStatement ps = con.prepareStatement("INSERT INTO UTENTE (USERNAME,EMAIL,PASSWORD,ADMIN,SALT) VALUES (?, ?, ?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
 			int admin = 0;
 			
-			if(u.isAdmin()==1)
+			if(u.isAdmin()==true)
 				admin = 1;
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getEmail());

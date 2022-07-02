@@ -50,8 +50,11 @@ public class Utente {
 		} 
 	}
 
-	public int isAdmin() {
-		return admin;
+	public boolean isAdmin() {
+		if(admin == 0)
+			return false;
+		else
+			return true;
 	}
 
 	public void setAdmin(int admin) {

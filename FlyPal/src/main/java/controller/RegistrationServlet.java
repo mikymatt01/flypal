@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.StringFilter;
 import model.Utente;
 import model.UtenteDAO;
 
@@ -23,6 +25,7 @@ public class RegistrationServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
+		System.out.println(username);
 		String email = request.getParameter("email1");
 		String password1 = request.getParameter("Password1");
 		String password2 = request.getParameter("Password2");
