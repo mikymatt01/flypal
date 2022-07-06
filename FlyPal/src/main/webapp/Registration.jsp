@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="model.Utente"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +12,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
   
 </head>
-	<body>
-		<!-- Button trigger modal -->
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#registration">
-  Registrati
-</button>
+<body>
+<%
+	Utente u2 = (Utente)session.getAttribute("utente");
+	if(u2 == null || u2.getUsername()==null){
+		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#registration'>Registrati</button>");
+	}else{
+		System.out.println(u2.getUsername());
+		 String sets= (u2.isAdmin())?"agenziainfo":"userinfo";
+		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#" + sets + "'>Impostazioni</button>");
+	}
+%>
 
 <!-- Modal -->
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,5 +66,85 @@
   </div>
 </div>
 
-	</body>
+<div class="modal fade" id="userinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Inserisci informazioni aggiuntive</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <form>
+      <div class="modal-body">
+		  <div class="form-group">
+		    <label for="username">username</label>
+		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp" value=<%=u2.getUsername()%>>
+		  </div>
+   		  <div class="form-group">
+		    <label for="name">nome</label>
+		    <input type="text" name="nome" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="nome">
+		  </div>
+		  <div class="form-group">
+		    <label for="cognome">cognome</label>
+		    <input type="text" name="cognome" class="form-control" id="cognome" placeholder="cognome">
+		  </div>
+  		  <div class="form-group">
+		    <label for="data di nascita">data di nascita</label>
+		    <input type="text" name="data di nascita" class="form-control" id="data di nascita" placeholder="data di nascita">
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+		  <button type="submit" class="btn btn-primary">Salva</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="agenziainfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Inserisci informazioni aggiuntive</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form>
+      <div class="modal-body">
+		  <div class="form-group">
+		    <label for="username">username</label>
+		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="username" value=<%= u2.getUsername()%>>
+		  </div>
+   		  <div class="form-group">
+		    <label for="piva">partita iva</label>
+		    <input type="text" name="piva" class="form-control" id="piva" aria-describedby="pivaHelp" placeholder="partita iva">
+		  </div>
+		  <div class="form-group">
+		    <label for="nome">nome</label>
+		    <input type="text" name="nome" class="form-control" id="nome" placeholder="nome">
+		  </div>
+  		  <div class="form-group">
+		    <label for="data di nascita">sede</label>
+		    <input type="text" name="data di nascita" class="form-control" id="data di nascita" placeholder="data di nascita">
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+		  <button type="submit" class="btn btn-primary">Salva</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
 </html>

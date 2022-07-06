@@ -80,12 +80,13 @@
                <li class="nav-item">
                <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
               </li>
+              
               <!-- Icons -->
               <li class="nav-item me-3 me-lg-0">
-              	<%@ include file='Login.jsp' %>
+              	<%@ include file='../Login.jsp' %>
               </li>
               <li class="nav-item me-3 me-lg-0 ms-3">
-                <%@ include file='Registration.jsp' %>
+                <%@ include file='../Registration.jsp' %>
               </li>
             </ul>
           </div>

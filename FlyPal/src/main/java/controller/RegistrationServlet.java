@@ -11,11 +11,12 @@ import javax.servlet.http.HttpSession;
 import model.StringFilter;
 import model.Utente;
 import model.UtenteDAO;
+/*
+ * 		name = "Registrazione",
+		urlPatterns = {
+ * */
+@WebServlet("/registrationServlet")
 
-@WebServlet(
-		name = "Registrazione",
-		urlPatterns = {"/registrationServlet"}
-)
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,6 +25,7 @@ public class RegistrationServlet extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.print("register");
 		String username = request.getParameter("username");
 		System.out.println(username);
 		String email = request.getParameter("email1");
@@ -48,4 +50,9 @@ public class RegistrationServlet extends HttpServlet {
 	    session.setAttribute("utente",u);
 	    response.sendRedirect("Home.jsp"); // redirect al profilo da modificare
 	}
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	System.out.print("heyyyyyy");
+	doPost(request, response);// redirect al profilo da modificare
+}
 }

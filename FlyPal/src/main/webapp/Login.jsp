@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="model.Utente"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +14,15 @@
 </head>
 	<body>
 		<!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#login">
-  Log In
-</button>
+<%
+	Utente u = (Utente)session.getAttribute("utente");
+
+	if(u==null || u.getUsername()==null){
+		out.print("<button type='button' class='btn btn-outline-light' data-toggle='modal' data-target='#login'>Log In</button>");
+	}else{
+		out.print("<button type='button' class='btn btn-outline-light'>Log out</button>");
+	}
+  %>
 
 <!-- Modal -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,7 +34,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+      <form action="loginServlet" method="post">
       <div class="modal-body">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email address</label>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/home.css">
 </head>
 <body style="background-color:#fff;">
-	<%@ include file="header.jsp" %> 
+	<%@ include file="shared/Header.jsp" %>
 	<div class="cont">
 	<div class="row justify-content-center">
 	<div class="mt-5 row text-center">
@@ -31,7 +31,7 @@
    	}%>
 	</div>
 	</div>
-	<%@ include file="footer.jsp" %> 
+	<%@ include file="shared/Footer.jsp" %> 
 	
 </body>
 </html>
