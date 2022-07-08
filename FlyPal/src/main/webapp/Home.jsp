@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="css/home.css">
 </head>
 <body style="background-color:#fff;">
+	
 	<%@ include file="shared/Header.jsp" %>
+	
 	<div class="cont">
 	<div class="row justify-content-center">
 	<div class="mt-5 row text-center">

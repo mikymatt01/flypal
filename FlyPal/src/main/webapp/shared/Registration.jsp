@@ -16,13 +16,18 @@
 <%
 	Utente u2 = (Utente)session.getAttribute("utente");
 	if(u2 == null || u2.getUsername()==null){
-		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#registration'>Registrati</button>");
+		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#registration' formaction='action_page2.php'>Registrati</button>");
 	}else{
 		System.out.println(u2.getUsername());
 		 String sets= (u2.isAdmin())?"agenziainfo":"userinfo";
 		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#" + sets + "'>Impostazioni</button>");
 	}
 %>
+
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -80,7 +85,7 @@
       <div class="modal-body">
 		  <div class="form-group">
 		    <label for="username">username</label>
-		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp" value=<%=u2.getUsername()%>>
+		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp">
 		  </div>
    		  <div class="form-group">
 		    <label for="name">nome</label>
@@ -105,8 +110,7 @@
 </div>
 
 
-
-<div class="modal fade" id="agenziainfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="agenziainfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -120,7 +124,7 @@
       <div class="modal-body">
 		  <div class="form-group">
 		    <label for="username">username</label>
-		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="username" value=<%= u2.getUsername()%>>
+		    <input type="text" name ="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="username">
 		  </div>
    		  <div class="form-group">
 		    <label for="piva">partita iva</label>
@@ -143,8 +147,5 @@
     </div>
   </div>
 </div>
-
-
-
 </body>
 </html>

@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -23,7 +24,7 @@
         }
 
         .carousel-item:nth-child(1) {
-          background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+          background-image: url('image/p1.jpg');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
@@ -61,10 +62,7 @@
           <a class="navbar-brand nav-link" style="font-size:20px;" target="_blank" href="http://localhost:8080/FlyPal">
             FlyPal
           </a>
-          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-            aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
+          
           <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -80,27 +78,24 @@
                <li class="nav-item">
                <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
               </li>
-              
-              <!-- Icons -->
+					<!-- 
               <li class="nav-item me-3 me-lg-0">
-              	<%@ include file='../Login.jsp' %>
-              </li>
+              	<%@ include file='Login.jsp' %>
+              </li> -->
               <li class="nav-item me-3 me-lg-0 ms-3">
-                <%@ include file='../Registration.jsp' %>
+                <%@ include file='Registration.jsp' %>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- Navbar -->
-
-      <!-- Carousel wrapper -->
+ 
       <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
-        <!-- Indicators -->
 
-        <!-- Inner -->
+
         <div class="carousel-inner">
-          <!-- Single item -->
+
           <div class="carousel-item active">
             <div class="d-flex h-100 text-white align-items-center justify-content-center">
 	            <div class="container">
@@ -111,8 +106,11 @@
           </div>
         </div>
       </div>
+
       <!-- Carousel wrapper -->
     </header>
- 
+    
+    
+    
 </body>
 </html>
