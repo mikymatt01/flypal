@@ -25,9 +25,7 @@ public class RegistrationServlet extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.print("register");
 		String username = request.getParameter("username");
-		System.out.println(username);
 		String email = request.getParameter("email1");
 		String password1 = request.getParameter("Password1");
 		String password2 = request.getParameter("Password2");
@@ -43,16 +41,17 @@ public class RegistrationServlet extends HttpServlet {
 			u.setHashPassword(password1);
 		
 		UtenteDAO newUser = new UtenteDAO();
-		newUser.doSave(u);
-		
-		request.getSession().setAttribute("utente", u);
-		HttpSession session= request.getSession();
-	    session.setAttribute("utente",u);
-	    response.sendRedirect("Home.jsp"); // redirect al profilo da modificare
+		if(!newUser.doSave(u))
+			response.sendRedirect("Home.jsp");
+		else{
+			request.getSession().setAttribute("utente", u);
+			HttpSession session= request.getSession();
+		    session.setAttribute("utente",u);
+		    response.sendRedirect("Home.jsp"); // redirect al profilo da modificare
+		}
 	}
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	System.out.print("heyyyyyy");
 	doPost(request, response);// redirect al profilo da modificare
 }
 }

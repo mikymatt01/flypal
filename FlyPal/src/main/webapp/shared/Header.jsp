@@ -78,10 +78,10 @@
                <li class="nav-item">
                <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
               </li>
-					<!-- 
+			
               <li class="nav-item me-3 me-lg-0">
               	<%@ include file='Login.jsp' %>
-              </li> -->
+              </li> 
               <li class="nav-item me-3 me-lg-0 ms-3">
                 <%@ include file='Registration.jsp' %>
               </li>

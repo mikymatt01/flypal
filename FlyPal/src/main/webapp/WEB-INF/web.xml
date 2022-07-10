@@ -58,4 +58,14 @@
     <servlet-name>Carrello</servlet-name>
     <url-pattern>/carrello</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>Dashboard</servlet-name>
+    <jsp-file>/Dashboard.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dashboard</servlet-name>
+    <url-pattern>/dashboard</url-pattern>
+  </servlet-mapping>
 </web-app>
