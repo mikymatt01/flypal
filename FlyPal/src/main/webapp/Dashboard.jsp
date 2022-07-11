@@ -92,11 +92,11 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="AggiungiViaggiServlet" method="post">
+	      <form action="AggiungiViaggiServlet" method="post" enctype="multipart/form-data">
 	      <div class="modal-body">
 	      	  <div class="form-group">
 			    <label for="exampleInputEmail1">Aggiungi immagine</label>
-	 			<input type="file" accept="image/png, image/jpeg" name="immagine">
+	 			<input type="file" accept="image/png, image/jpeg" name="immagine" id="immagine">
 	 		  </div><br>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">citta di partenza</label>
