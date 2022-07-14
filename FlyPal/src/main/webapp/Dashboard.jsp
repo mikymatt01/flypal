@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.util.ArrayList, model.Viaggio"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,9 +67,21 @@
 
             </ul>
 
-            <ul class="navbar-nav d-flex flex-row">
+            <ul class="navbar-nav d-flex flex-row" style="margin-right:20px">
                <li class="nav-item">
                <button type='button' class='btn btn-outline-dark' data-toggle='modal' data-target='#aggiungiviaggio'>aggiungi viaggio</button>
+              </li>
+			
+            </ul>
+            <ul class="navbar-nav d-flex flex-row" style="margin-right:20px">
+               <li class="nav-item">
+               <button type='button' class='btn btn-outline-dark' data-toggle='modal' onclick="reload()">aggiorna</button>
+              </li>
+			
+            </ul>
+            <ul class="navbar-nav d-flex flex-row" style="margin-right:20px">
+               <li class="nav-item">
+               <button type='button' class='btn btn-outline-dark' data-toggle='modal' onclick="exit()">esci</button>
               </li>
 			
             </ul>
@@ -77,8 +89,64 @@
         </div>
       </nav>
       <!-- Navbar -->
-
-
+		<script type="text/javascript">
+			function reload() {
+			    window.location = 'DashboardServlet';
+			}
+			function exit() {
+			    window.location = 'home';
+			}
+		</script>
+   		<table class="table">
+      	  <thead>
+      	    <tr>
+      	      <th scope="col">immagine</th>
+      	      <th scope="col">id</th>
+      	      <th scope="col">partenza</th>
+      	      <th scope="col">arrivo</th>
+      	      <th scope="col">orario partenza</th>
+       	      <th scope="col">orario arrivo</th>
+       	      <th scope="col">posti</th>
+       	      <th scope="col">costo</th>
+       	      <th scope="col">scadenza</th>
+       	      <th scope="col">descrizione</th>
+       	      <th scope="col"></th>
+      	      <th scope="col"></th>
+      	    </tr>
+      	  </thead>
+      	  <tbody>
+      <%
+      	ArrayList<Viaggio> list = (ArrayList<Viaggio>) request.getAttribute("viaggi");
+      	for(Viaggio v: list){
+      		System.out.println(v.getId());
+      	    out.write("<tr>");
+	      	out.write("<td scope='row'><img width='20%' src='" + v.getUrl() + "'/></td>");
+      	  	out.write("<td scope='row'>" + v.getId() + "</td>");
+	      	out.write("<td scope='row'>" + v.getCitta_p() + "</td>");
+	      	out.write("<td scope='row'>" + v.getCitta_a() + "</td>");
+	      	out.write("<td scope='row'>" + v.getOrario_p() + "</td>");
+	      	out.write("<td scope='row'>" + v.getOrario_a() + "</td>");
+	      	out.write("<td scope='row'>" + v.getNposti() + "</td>");
+	      	out.write("<td scope='row'>" + v.getCosto() + "</td>");
+	      	out.write("<td scope='row'>" + v.getScadenza() + "</td>");
+	      	out.write("<td scope='row'>" + v.getDescrizione() + "</td>");
+	      	out.write(
+	    			"<td scope='row'><form>"+
+		      		"<input style='display:none' id='id' name='id' value=" + v.getId() + ">" + 
+		      			"<button type='submit'>prenotazioni</button>"+
+	      			"</form></td>"
+	   			);
+	      	out.write(
+    			"<td scope='row'><form method='GET' action='EliminaViaggiServlet'>"+
+	      		"<input style='display:none' id='id' name='id' value=" + v.getId() + ">" + 
+   	      		"<input style='display:none' id='url' name='url' value=" + v.getUrl() + ">" + 
+      			"<button type='submit'>elimina</button>"+ 
+      			"</form></td>"
+   			);
+      	}
+      %>
+      	  </tbody>
+      	</table>
       <!-- Carousel wrapper -->
     </header>
 	    
@@ -114,6 +182,10 @@
 	  		  <div class="form-group">
 			    <label for="exampleInputPassword1">data e ora di arrivo</label><br>
 				<input type="datetime-local" id="dataArrivo" name="dataArrivo">
+			  </div><br>
+  	  		  <div class="form-group">
+			    <label for="exampleInputPassword1">data limite per prenotare</label><br>
+				<input type="datetime-local" id="scadenza" name="scadenza">
 			  </div><br>
 	   		  <div class="form-group">
 			    <label for="exampleInputPassword1">posti disponibili</label>

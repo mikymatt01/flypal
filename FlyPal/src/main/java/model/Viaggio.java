@@ -1,11 +1,11 @@
 package model;
 
 public class Viaggio {
-	private String username,citta_p,citta_a,descrizione,orario_p,orario_a,scadenza;
+	private String username,citta_p,citta_a,descrizione,orario_p,orario_a,scadenza, url;
 	private int id,nposti;
 	private float costo;
 	public Viaggio(String username, String citta_p, String citta_a, String orario_p, String orario_a, String scadenza,
-			int id, int nposti, float costo) {
+			int id, int nposti, float costo, String descrizione, String url) {
 		this.username = username;
 		this.citta_p = citta_p;
 		this.citta_a = citta_a;
@@ -15,20 +15,24 @@ public class Viaggio {
 		this.id = id;
 		this.nposti = nposti;
 		this.costo = costo;
-	}
-	public Viaggio(String username, String citta_p, String citta_a, String descrizione, String orario_p,
-			String orario_a, String scadenza, int id, int nposti, float costo) {
-		this.username = username;
-		this.citta_p = citta_p;
-		this.citta_a = citta_a;
 		this.descrizione = descrizione;
-		this.orario_p = orario_p;
-		this.orario_a = orario_a;
-		this.scadenza = scadenza;
-		this.id = id;
-		this.nposti = nposti;
-		this.costo = costo;
+		this.url=url;
 	}
+
+	public Viaggio() {
+		this.username = "";
+		this.citta_p = "";
+		this.citta_a = "";
+		this.orario_p = "";
+		this.orario_a = "";
+		this.scadenza = "";
+		this.id = 0;
+		this.nposti = 0;
+		this.costo = 0;
+		this.descrizione = "";
+		this.url="";
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -93,5 +97,9 @@ public class Viaggio {
 	
 	public void addPosto() {
 		nposti++;
+	}
+	
+	public String getUrl() {
+		return url;
 	}
 }

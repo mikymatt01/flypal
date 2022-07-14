@@ -35,4 +35,29 @@ public class UtenteDAO {
 			return false;
 		}
 	}
+	
+	public Utente select(String username, String password) {
+		try {
+			Connection con = DbConnection.getConnection();
+			
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM UTENTE WHERE username=?");
+			
+			ps.setString(1, username);
+			Utente u = null;
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				u=new Utente(
+					rs.getString("username"),
+					rs.getString("email"),
+					rs.getInt("admin")
+				);
+			}
+			
+			return u;
+			
+		} catch (SQLException e) {
+			return null;
+		}
+	}
 }

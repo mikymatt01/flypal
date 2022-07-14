@@ -1,30 +1,27 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Utente;
-import model.Viaggio;
-import model.ViaggioDAO;
+import model.UtenteDAO;
 
 /**
- * Servlet implementation class DashboardServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/DashboardServlet")
-public class DashboardServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DashboardServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,18 +30,19 @@ public class DashboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Utente u = (Utente) request.getSession().getAttribute("utente");
+		String username = request.getParameter("username");
+		String email = request.getParameter("email1");
+		String password = request.getParameter("Password");
+		
+		Utente u = new UtenteDAO().select(username, password);
 		if(u==null) {
-			response.getWriter().append("You are not logged");
-		}
-		if(!u.isAdmin()) {
-			response.getWriter().append("You can't access this page");
+		    response.sendRedirect("Home.jsp");
 		}else {
-			ArrayList<Viaggio> list= new ViaggioDAO().select(u.getUsername());
-			request.setAttribute("viaggi", list);
-			RequestDispatcher rd=request.getRequestDispatcher("/dashboard");
-			rd.forward(request, response);
+			System.out.println(u.getUsername());
+			request.getSession().setAttribute("utente", u);
+			HttpSession session= request.getSession();
+		    session.setAttribute("utente",u);
+		    response.sendRedirect("Home.jsp");
 		}
 	}
 

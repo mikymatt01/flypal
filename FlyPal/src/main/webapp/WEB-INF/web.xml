@@ -2,8 +2,18 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>FlyPal</display-name>
   <welcome-file-list>
-    <welcome-file>Home.jsp</welcome-file>
+    <welcome-file>LeggiViaggiServlet</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+	<param-name>appPath</param-name>
+	<param-value>C:\Users\utente\Desktop\TSW\TswProgect\FlyPal\src\main\webapp</param-value>
+  </context-param>
+	
+  <context-param>
+	<param-name>savePath</param-name>
+	<param-value>\image\viaggi\</param-value>
+  </context-param>
   
   <resource-ref>
 	<description>

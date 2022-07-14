@@ -15,16 +15,16 @@ import model.Viaggio;
 import model.ViaggioDAO;
 
 /**
- * Servlet implementation class DashboardServlet
+ * Servlet implementation class CarrelloServlet
  */
-@WebServlet("/DashboardServlet")
-public class DashboardServlet extends HttpServlet {
+@WebServlet("/CarrelloServlet")
+public class CarrelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DashboardServlet() {
+    public CarrelloServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,19 +33,27 @@ public class DashboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Utente u = (Utente) request.getSession().getAttribute("utente");
-		if(u==null) {
-			response.getWriter().append("You are not logged");
+		ViaggioDAO v= new ViaggioDAO();
+		
+		Utente u = (Utente)request.getSession().getAttribute("utente");
+
+		String pagato=(String)request.getParameter("pagato");
+		ArrayList<Viaggio> lv;
+		System.out.print(pagato);
+		if(pagato!=null && Integer.parseInt(pagato)==1) {
+			lv = v.selectCart(u.getUsername(), 1);
+			request.setAttribute("pagato", pagato);
 		}
-		if(!u.isAdmin()) {
-			response.getWriter().append("You can't access this page");
-		}else {
-			ArrayList<Viaggio> list= new ViaggioDAO().select(u.getUsername());
-			request.setAttribute("viaggi", list);
-			RequestDispatcher rd=request.getRequestDispatcher("/dashboard");
-			rd.forward(request, response);
+		else {
+			lv = v.selectCart(u.getUsername(), 0);
+			request.setAttribute("pagato", pagato);
 		}
+		for(Viaggio viaggio: lv) {
+			System.out.println(viaggio.getId());
+		}
+		request.setAttribute("viaggi", lv);
+		RequestDispatcher rd=request.getRequestDispatcher("/carrello");
+		rd.forward(request, response);
 	}
 
 	/**

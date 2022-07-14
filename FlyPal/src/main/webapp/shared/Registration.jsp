@@ -16,13 +16,13 @@
 <%
 	Utente u2 = (Utente)session.getAttribute("utente");
 	if(u2 == null || u2.getUsername()==null){
-		out.print("<button type='button' class='btn btn-light' data-toggle='modal' data-target='#registration'>Registrati</button>");
+		out.print("<button type='button' class='btn btn-light mr-3' data-toggle='modal' data-target='#registration'>Registrati</button>");
 	}else{
 		System.out.println(u2.getUsername());
 		 String sets= (u2.isAdmin())?"agenziainfo":"userinfo";
 		out.print("<button type='button' class='btn btn-light mr-3' data-toggle='modal' data-target='#" + sets + "'>Impostazioni</button>");
 		if(u2.isAdmin())
-			out.print("<button type='submit' class='btn btn-light' onClick='clickFun()'>Dashboard</button>");
+			out.print("<button type='submit' class='btn btn-light mr-3' onClick='clickFun()'>Dashboard</button>");
 	}
 %>
 
