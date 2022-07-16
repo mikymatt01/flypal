@@ -353,4 +353,39 @@ public class ViaggioDAO {
 			return null;
 		}
 	}
+	
+	public ArrayList<Prenotazione> selectPrenotazioniById(String usernameAgenzia, String id) {
+		Connection con;
+		try {
+			con = DbConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT viaggio.*, acquista.pagato, acquista.quantita, acquista.profile_user FROM viaggio, acquista WHERE viaggio.id=acquista.id AND viaggio.username=? AND viaggio.id=?");
+			
+			ps.setString(1, usernameAgenzia);
+			ps.setString(2, id);
+			
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Prenotazione> lp = new ArrayList<Prenotazione>();
+			Prenotazione p;
+			while(rs.next()) {
+				p=new Prenotazione(
+					rs.getString("acquista.profile_user"),
+					rs.getString("viaggio.cittap"),
+					rs.getString("viaggio.cittaar"),
+					rs.getString("viaggio.orariop"),
+					rs.getString("viaggio.orarioa"),
+					rs.getInt("acquista.quantita"),
+					rs.getFloat("viaggio.costo"),
+					rs.getInt("acquista.pagato"),
+					rs.getString("viaggio.url")
+				);
+				lp.add(p);
+				
+			}
+			return lp;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

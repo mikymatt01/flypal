@@ -21,7 +21,7 @@
             <div class="d-flex h-100 text-white align-items-center justify-content-center">
 	            <div class="container">
 	            	<h1 class="text-center display-4"><strong>FlyPal</strong></h1>
-	            	<h4 class="text-center display-4">Viaggia sicuro a cazzo duro</h4>
+	            	<h4 class="text-center display-4">Viaggia sicuro con Flypal</h4>
 		        </div>
             </div>
           </div>

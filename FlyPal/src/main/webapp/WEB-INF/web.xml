@@ -78,4 +78,13 @@
     <servlet-name>Dashboard</servlet-name>
     <url-pattern>/dashboard</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Prenotazioni</servlet-name>
+    <jsp-file>/Prenotazioni.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Prenotazioni</servlet-name>
+    <url-pattern>/prenotazioni</url-pattern>
+  </servlet-mapping>
 </web-app>

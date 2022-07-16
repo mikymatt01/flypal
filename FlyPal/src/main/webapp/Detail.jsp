@@ -33,7 +33,7 @@
             <h3 class="card-title"><%=v.getCitta_p() + " - " + v.getCitta_a() %></h3>
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6">
-                    <div class="white-box text-center"><img src=<%=v.getUrl() %> class="img-responsive"></div>
+                    <div class="white-box text-center"><img src=<%=v.getUrl() %> class="img-responsive" style="width:100%"></div>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Descrizione</h4>
@@ -163,7 +163,13 @@
         </div>
     </div>
 </div>
-              <h3 class="box-title mt-5">Consigliati</h3>          
+   	<div class="cont">
+	<div class="row justify-content-center">
+	<div class="mt-5 row text-center">
+		<h1 id="offerte">
+	           <strong>Consigliati</strong>
+	    </h1>
+   	</div>       
   	<% 
    		ArrayList<Viaggio> viaggi = dao.select();
    		for(Viaggio viaggio: viaggi) {
@@ -181,5 +187,7 @@
 	    out.print("</div>");
 		}
    	%>
+   	</div>
+   	</div>
 </body>
 </html>

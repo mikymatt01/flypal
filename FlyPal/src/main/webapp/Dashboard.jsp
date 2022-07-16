@@ -131,7 +131,7 @@
 	      	out.write("<td scope='row'>" + v.getScadenza() + "</td>");
 	      	out.write("<td scope='row'>" + v.getDescrizione() + "</td>");
 	      	out.write(
-	    			"<td scope='row'><form>"+
+	    			"<td scope='row'><form action=\"PrenotazioniServlet\">"+
 		      		"<input style='display:none' id='id' name='id' value=" + v.getId() + ">" + 
 		      			"<button type='submit'>prenotazioni</button>"+
 	      			"</form></td>"
