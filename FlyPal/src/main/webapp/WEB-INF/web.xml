@@ -7,7 +7,7 @@
   
   <context-param>
 	<param-name>appPath</param-name>
-	<param-value>C:\Users\utente\Desktop\TSW\TswProgect\FlyPal\src\main\webapp</param-value>
+	<param-value> C:\Users\Utente\git\flypal\Flypal\src\main\webapp</param-value>
   </context-param>
 	
   <context-param>

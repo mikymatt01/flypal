@@ -24,7 +24,7 @@
         }
 
         .carousel-item:nth-child(1) {
-          background-image: url('image/p1.jpg');
+          background-image: url('image/p4.jpg');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
