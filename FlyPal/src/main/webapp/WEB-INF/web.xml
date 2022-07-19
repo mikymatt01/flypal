@@ -87,4 +87,13 @@
     <servlet-name>Prenotazioni</servlet-name>
     <url-pattern>/prenotazioni</url-pattern>
   </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>Cerca</servlet-name>
+    <jsp-file>/Cerca.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cerca</servlet-name>
+    <url-pattern>/cerca</url-pattern>
+  </servlet-mapping>
 </web-app>

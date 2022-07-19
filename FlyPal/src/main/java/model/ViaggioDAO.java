@@ -388,4 +388,42 @@ public class ViaggioDAO {
 			return null;
 		}
 	}
+	
+	public ArrayList<Viaggio> search(String partenza, String arrivo) {
+		Connection con;
+		try {
+			con = DbConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM VIAGGIO WHERE cittap=? and cittaar=?");
+			
+			ps.setString(1, partenza);
+			ps.setString(2, arrivo);
+			ResultSet rs = ps.executeQuery();
+			
+			ArrayList<Viaggio> lv = new ArrayList<Viaggio>();
+			Viaggio v = null;
+			while(rs.next()) {
+				v=new Viaggio(
+					rs.getString("username"),
+					rs.getString("cittap"),
+					rs.getString("cittaar"),
+					rs.getString("orariop"),
+					rs.getString("orarioa"),
+					rs.getString("scadenza"),
+					rs.getInt("id"),
+					rs.getInt("nposti"),
+					rs.getFloat("costo"),
+					rs.getString("descrizione"),
+					rs.getString("url")
+				);
+				lv.add(v);
+				
+			}
+			
+			return lv;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

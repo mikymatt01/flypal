@@ -172,20 +172,24 @@
    	</div>       
   	<% 
    		ArrayList<Viaggio> viaggi = dao.select();
+   	out.print("<div class=\"row justify-content-center\">");
+
    		for(Viaggio viaggio: viaggi) {
-   		out.print("<div class=\"col-sm-3 mt-4\">");
-   		out.print("<div class=\"card\" style=\"width: 60%;\">");
+	   	out.print("<div class=\"col-sm-3 justify-content-center\">");
+   		out.print("<div class=\"card\" style=\"width: 60%;margin:auto;\">");
    		out.print("<form action=\"detail\" method=\"GET\">");
    		out.print("<input type=\"image\" src=\""+ viaggio.getUrl() +"\" class=\"card-img-top\" style=\"height: 250px;\" alt=\"\">");
    		out.print("<input id=\"id\" name=\"id\" value=\"" + viaggio.getId() + "\" style=\"display:none\" \">");
    		out.print("</form>");
    		out.print("</div>");
-   		out.print("<div style=\"color:white; margin-top:0%;margin-left:0%;\" >");
+   		out.print("<div class=\"text-center \" style=\"color:white; margin-top:0%;margin-left:0%;\" >");
    		out.print("<h6 style=\"color:black;\">" + viaggio.getCitta_p() + " - " + viaggio.getCitta_a() + "</h6>");
    		out.print("<p style=\"color:black;\">" + viaggio.getOrario_p() + " - " + viaggio.getOrario_a() + "</p>");
 	    out.print("</div>");
 	    out.print("</div>");
 		}
+   		out.print("</div>");
+
    	%>
    	</div>
    	</div>

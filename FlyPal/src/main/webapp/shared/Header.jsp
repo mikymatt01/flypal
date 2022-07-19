@@ -70,13 +70,13 @@
 
             <ul class="navbar-nav d-flex flex-row">
               <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Home</a>
+              <a class="nav-link" aria-current="page" href="home">Home</a>
               </li>
               <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#offerte">Offerte</a>
               </li>
                <li class="nav-item">
-               <a class="nav-link" aria-current="page" href="#intro">Ricerca</a>
+               <a class="nav-link" aria-current="page" href="cerca">Ricerca</a>
               </li>
 			
               <li class="nav-item me-3 me-lg-0 ms-3">
@@ -89,7 +89,7 @@
           </div>
         </div>
       </nav>
-      <!-- Navbar -->
+            <!-- Navbar -->
  
     
     
